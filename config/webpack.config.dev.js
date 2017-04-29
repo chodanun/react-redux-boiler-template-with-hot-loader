@@ -115,13 +115,28 @@ module.exports = {
           /\.(js|jsx)(\?.*)?$/,
           /\.css$/,
           /\.json$/,
-          /\.svg$/
+          /\.svg$/,
+          // exclude sass and scss
+          /\.sass$/,
+          /\.scss$/,
         ],
         loader: 'url',
         query: {
           limit: 10000,
           name: 'static/media/[name].[hash:8].[ext]'
         }
+      },
+      // adding sass
+      {
+        test: /\.sass$/,
+        include: paths.appSrc,
+        loaders: ["style", "css", "sass"]
+      },
+      // adding scss
+      {
+        test: /\.scss$/,
+        include: paths.appSrc,
+        loaders: ["style", "css", "sass"]
       },
       // Process JS with Babel.
       {
