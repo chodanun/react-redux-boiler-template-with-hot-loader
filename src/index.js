@@ -4,6 +4,8 @@ import App from './App';
 import './index.css';
 import { AppContainer } from 'react-hot-loader'
 
+// import ConfigStore from './ConfigStore'
+
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
