@@ -1,9 +1,24 @@
-import createReducer from '../lib/createReducer'
+const initialState = {
+	number: 0,
+}
+console.log("INTEST")
 
-console.log("IN @ RE")
-export const test = createReducer(2,{
-	['TEST'](state, action){
-		console.log("IN")
-		return 10
+export default const test = (state = initialState, action) =>{
+	switch(action.type) {
+		case 'TEST':
+		console.log("INTEST")
+			return {
+				number: 10,
+				}
+			}
+		case 'LOAD_DBS_FAILURE':
+			return {
+				...state,
+				get: {
+					...state.get
+				}
+			}
+		default:
+			return state
 	}
-})
+}

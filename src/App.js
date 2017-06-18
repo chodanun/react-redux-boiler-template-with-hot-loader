@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import { connect } from 'react-redux'
-// import { test } from './actions'
-export default class App extends Component {
+import { connect } from 'react-redux'
+import {test} from './actions'
 
+class App extends Component {
   componentWillMount(){
-    // setTimeout(()=> this.props.test(),3000)
+    this.props.test()
   }
-
   render() {
-    // console.log(this.props)
     return (
       <div className="App">
         <div className="App-header">
@@ -25,14 +23,17 @@ export default class App extends Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   a: state.test,
-// })
+const mapStateToProps = (state) => ({
+  test: state.test
+})
 
-// const mapDispatchToProps = (dispatch) => ({
-//   test(){
-//     dispatch(test())
-//   }
-// })
+const mapDispatchToProps = (dispatch) => ({
+  test(){
+    dispatch(test())
+  }
+})
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
